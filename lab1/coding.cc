@@ -1,10 +1,12 @@
-#include<coding.h>
+#include "coding.h"
 
 unsigned char encode(unsigned char c)
 {
-    return c;
+    (int)c++;
+    return (char)c;
 }
 unsigned char decode(unsigned char c)
 {
-    return c;
+    (int)c--;
+    return (char)c;
 }

@@ -47,6 +47,7 @@ bool test_coding()
 
 int main()
 {
+
     if(test_coding()) {
         std::cout << "Test passed." << std::endl;
     } else {
