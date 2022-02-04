@@ -21,7 +21,7 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS =  ltest 
+PROGS =  process spell dictionary
 
 all: $(PROGS)
 
@@ -29,9 +29,8 @@ all: $(PROGS)
 #	./test_coding
 
 # Targets rely on implicit rules for compiling and linking
-ltest: ltest.o list.o
-test_coding: test_coding.o coding.o
-print_argv: print_argv.o
+process: process.o
+spell: dictionary.o spell.o word.o
 
 # Phony targets
 .PHONY: all test clean distclean
