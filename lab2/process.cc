@@ -15,17 +15,22 @@ int main () {
   {
     while ( getline (oldfile,newline) )
     {
-        if (len(newline) <= 3)
+        if (newline.length() <= 3)
         {
-            newword.append(newline + "\n"); 
+          //newword.append(newline + " " + to_string(0) + "\n"); 
         }else{
-            
+
+
+         // newword += newline + " " + to_string(newline.length()-3);
+
+          for (std::size_t i = 0; i <= newline.length() - 3; i++) {
+            cout << i;
+        
+  
+          }
+
         }
-        
-        
-
-
-
+      
         newfile << newword;
         newword = "";
     
