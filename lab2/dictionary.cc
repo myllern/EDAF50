@@ -8,8 +8,12 @@
 
 using std::string;
 using std::vector;
+using namespace std;
 
 Dictionary::Dictionary() {
+	unordered_set<string> word_set;
+	ifstream infile("new.txt");
+	
 }
 
 bool Dictionary::contains(const string& word) const {
