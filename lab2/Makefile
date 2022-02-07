@@ -11,27 +11,27 @@ DEPFLAGS = -MT $@ -MMD -MP -MF $*.d
 # if you use clang++ and wish to use libc++ instead of GNU's libstdc++.
 # -g is for debugging.
 CPPFLAGS =  -std=c++11 -I.
-CXXFLAGS =  -O2 -Wall -Wextra -pedantic-errors -Wold-style-cast 
-CXXFLAGS += -std=c++11 
+CXXFLAGS =  -O2 -Wall -Wextra -pedantic-errors -Wold-style-cast
+CXXFLAGS += -std=c++11
 CXXFLAGS += -g
 CXXFLAGS += $(DEPFLAGS)
-LDFLAGS =   -g 
+LDFLAGS =   -g
+#LDLIB = -llab1
 #CPPFLAGS += -stdlib=libc++
 #CXXFLAGS += -stdlib=libc++
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS =  process spell dictionary
+PROGS =  spell process dictionary
 
 all: $(PROGS)
 
-#test: test_coding
-#	./test_coding
+test: spell
+	./spell
 
 # Targets rely on implicit rules for compiling and linking
-process: process.o
+preprocess: process.o
 spell: dictionary.o spell.o word.o
-
 # Phony targets
 .PHONY: all test clean distclean
 
@@ -41,7 +41,6 @@ clean:
 
 distclean: clean
 	rm *.d
-
 
 # Include the *.d files
 SRC = $(wildcard *.cc)

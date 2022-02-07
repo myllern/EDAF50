@@ -4,6 +4,8 @@
 #include <string>
 #include <unordered_set>
 #include <vector>
+#include <unordered_set>
+#include "word.h"
 
 class Dictionary {
 public:

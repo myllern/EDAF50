@@ -42,5 +42,7 @@ int main()
   else
     cout << "Unable to open file";
 
+  newline.clear();
+  newword.clear();
   return 0;
 }
