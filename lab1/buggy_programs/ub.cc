@@ -9,6 +9,7 @@ std::vector<int> create_vector(int s)
 {
     assert(s >= 0);
     std::vector<int> res(s);
+    return res;
 }
 
 template <typename C>

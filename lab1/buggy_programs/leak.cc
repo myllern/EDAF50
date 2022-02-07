@@ -5,6 +5,7 @@ struct Foo{
     Foo(int s) :sz{s}, p{new int[s]} {
             for(int i=0; i < s; ++i) p[i]=i+1; // or use std:iota
     }
+    ~Foo() {delete[] p;} // destructor!
     void print() const {
         cout << "Foo: ";
         for(int i=0; i<sz; ++i){

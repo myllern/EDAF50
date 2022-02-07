@@ -8,7 +8,7 @@ CC  = $(CXX)
 # if you use clang++ and wish to use libc++ instead of GNU's libstdc++.
 # -g is for debugging.
 CPPFLAGS =  -std=c++11 -I.
-CXXFLAGS =  -O0 -Wall -Wextra -pedantic-errors -Wold-style-cast
+CXXFLAGS =  -Wall -Wextra -pedantic-errors -Wold-style-cast
 CXXFLAGS += -std=c++11
 CXXFLAGS += -g
 LDFLAGS =   -g

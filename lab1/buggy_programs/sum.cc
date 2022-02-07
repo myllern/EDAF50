@@ -1,6 +1,5 @@
 #include <iostream>
-
-#define N (4)
+#define N (3)
 
 int x = 1000;
 int	a[]{ 1, 2, 3, 4 };

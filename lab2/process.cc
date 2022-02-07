@@ -4,42 +4,43 @@
 #include <string>
 using namespace std;
 
-int main () {
+int main()
+{
   string newline;
   string newword;
-  ifstream oldfile ("old.txt");
+  ifstream oldfile("old.txt");
   ofstream newfile;
-  newfile.open ("new.txt");
+  newfile.open("new.txt");
 
   if (oldfile.is_open() || newfile.is_open())
   {
-    while ( getline (oldfile,newline) )
+    while (getline(oldfile, newline))
     {
-        if (newline.length() <= 3)
+      if (newline.length() <= 3)
+      {
+        newword.append(newline + " " + to_string(0) + "\n");
+      }
+      else
+      {
+        newword.append(newline + " " + to_string(newline.length() - 3) + " ");
+        for (std::size_t i = 0; i <= newline.length() - 3; i++)
         {
-          //newword.append(newline + " " + to_string(0) + "\n"); 
-        }else{
-
-
-         // newword += newline + " " + to_string(newline.length()-3);
-
-          for (std::size_t i = 0; i <= newline.length() - 3; i++) {
-            cout << i;
-        
-  
-          }
-
+          newword += tolower(newline.at(i));
+          newword += newline.at(i + 1);
+          newword += newline.at(i + 2);
+          newword += " ";
         }
-      
-        newfile << newword;
-        newword = "";
-    
+      }
+      newword += "\n";
+      newfile << newword;
+      newword = "";
     }
     newfile.close();
     oldfile.close();
   }
 
-  else cout << "Unable to open file"; 
+  else
+    cout << "Unable to open file";
 
   return 0;
 }
