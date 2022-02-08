@@ -15,7 +15,11 @@ using namespace std;
 Dictionary::Dictionary() {
 	unordered_set<string> word_set;
 	ifstream infile("new.txt");
-	
+	string newline;
+	while(getline(infile,newline)){
+		word_set.insert(newline);
+	}
+
 }
 	
 

@@ -1,15 +1,19 @@
 // reading a text file
 #include <iostream>
 #include <fstream>
+#include <list>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 int main()
 {
   string newline;
   string newword;
-  ifstream oldfile("old.txt");
+  string triads;
+  ifstream oldfile("engmix.txt");
   ofstream newfile;
+  list<string> list;
   newfile.open("new.txt");
 
   if (oldfile.is_open() || newfile.is_open())
@@ -22,18 +26,9 @@ int main()
       }
       else
       {
-        newword.append(newline + " " + to_string(newline.length() - 3) + " ");
-        for (std::size_t i = 0; i <= newline.length() - 3; i++)
-        {
-          newword += tolower(newline.at(i));
-          newword += newline.at(i + 1);
-          newword += newline.at(i + 2);
-          newword += " ";
-        }
+
+        newword.append(newline + " " + to_string(newline.length() - 2) + " ");
       }
-      newword += "\n";
-      newfile << newword;
-      newword = "";
     }
     newfile.close();
     oldfile.close();
@@ -45,4 +40,15 @@ int main()
   newline.clear();
   newword.clear();
   return 0;
+}
+
+string gen_triads(string word)
+{
+  string[] tri_arr;
+  for (std::size_t i = 0; i <= word.length() - 3; i++)
+  {
+    
+
+
+  }
 }
