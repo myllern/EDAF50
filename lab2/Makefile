@@ -22,7 +22,7 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS =  spell process dictionary
+PROGS =  spell
 
 all: $(PROGS)
 

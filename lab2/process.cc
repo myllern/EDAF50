@@ -1,4 +1,4 @@
-// reading a text file
+// reading a text infile
 #include <iostream>
 #include <fstream>
 #include <list>
@@ -11,35 +11,47 @@ int main()
   string newline;
   string newword;
   string triads;
-  ifstream oldfile("engmix.txt");
-  ofstream newfile;
-  list<string> lista;
-  newfile.open("new.txt");
+  ifstream infile("old.txt");
+  ofstream outFile;
+  list<string> list;
 
-  if (oldfile.is_open() || newfile.is_open())
+  outFile.open("new.txt");
+
+  if (infile.is_open() || outFile.is_open())
   {
-    while (getline(oldfile, newline))
+    while (getline(infile, newline))
     {
+
       if (newline.length() <= 3)
       {
         newword.append(newline + " " + to_string(0) + "\n");
       }
       else
       {
-        newword.append(newline + " " + to_string(newline.length() - 2) + " ");
-        for (std::size_t i = 0; i <= newword.length() - 3; i++)
+        newword.append(newline + " " + to_string(newline.length()) + " ");
+        newline[0] = tolower(newline[0]);
+        for (std::size_t i = 0; i < newline.length() - 2; i++)
         {
-          lista.push_back(newword);
+          list.push_back(newline.substr(i, 3).append(" "));
+        }
+        list.sort();
+        for (string i : list)
+        {
+          newword.append(i);
         }
 
+        list.clear();
+        newword.append("\n");
+        outFile << newword;
+        newword = "";
       }
     }
-    newfile.close();
-    oldfile.close();
+    outFile.close();
+    infile.close();
   }
 
   else
-    cout << "Unable to open file";
+    cout << "Unable to open infile";
 
   newline.clear();
   newword.clear();
