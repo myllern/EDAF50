@@ -13,7 +13,7 @@ int main()
   string triads;
   ifstream oldfile("engmix.txt");
   ofstream newfile;
-  list<string> list;
+  list<string> lista;
   newfile.open("new.txt");
 
   if (oldfile.is_open() || newfile.is_open())
@@ -26,8 +26,12 @@ int main()
       }
       else
       {
-
         newword.append(newline + " " + to_string(newline.length() - 2) + " ");
+        for (std::size_t i = 0; i <= newword.length() - 3; i++)
+        {
+          lista.push_back(newword);
+        }
+
       }
     }
     newfile.close();
@@ -40,15 +44,4 @@ int main()
   newline.clear();
   newword.clear();
   return 0;
-}
-
-string gen_triads(string word)
-{
-  string[] tri_arr;
-  for (std::size_t i = 0; i <= word.length() - 3; i++)
-  {
-    
-
-
-  }
 }
