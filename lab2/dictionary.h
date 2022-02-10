@@ -18,6 +18,8 @@ public:
 private:
 unordered_set<string> word_set;
 vector<Word> words[25];
+void add_trigram_suggestions(std::vector<std::string> &suggestions, const std::string &word) const;
+
 
 };
 

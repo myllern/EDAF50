@@ -60,7 +60,10 @@
         "cinttypes": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "regex": "cpp",
+        "condition_variable": "cpp",
+        "shared_mutex": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

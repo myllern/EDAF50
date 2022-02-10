@@ -16,6 +16,7 @@ void check_word(const string& word, const Dictionary& dict)
     if (dict.contains(word)) {
         cout << "Correct." << endl;
     } else {
+
         vector<string> suggestions = dict.get_suggestions(word);
         if (suggestions.empty()) {
             cout << "Wrong, no suggestions." << endl;

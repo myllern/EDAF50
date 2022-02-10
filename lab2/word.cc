@@ -21,13 +21,13 @@ unsigned int Word::get_matches(const vector<string> &t) const
 	unsigned int count = 0;
 	int nrOfTrigrams = word.length() - 2;
 
+
+
 	for (std::size_t i = 0; i < nrOfTrigrams; i++)
 	{
 		if(std::find(std::begin(t), std::end(t), trigrams[i]) != std::end(t)){
 			count++;
-			std::cout << "Hee";
 		}
-
 
 	}
 
