@@ -3,51 +3,31 @@
 #include <fstream>
 #include <vector>
 #include <algorithm>
+#include <regex>
 #include "reader.h"
-using std::cout;
-using std::ifstream;
-using std::string;
-using std::vector;
+using namespace std;
 
 TagRemover::TagRemover(std::string s)
 {
-    file = s;
+    ifstream file;
+    file.open(s);
+    string row;
 
-    ifstream text_file;
-
-    text_file.open(s);
-
-    string text_row;
-
-    string html;
-
-    vector<int> start_tags;
-    vector<int> end_tags;
-
-    while (getline(text_file, text_row))
+    while (getline(file, row))
     {
-        if (text_file.good())
-        {
-            html += text_row + "\n";
-        }
+        html += row + "\n";
     }
+    html.erase(remove(html.begin(), html.end(), '<'), html.end());
+    html.erase(remove(html.begin(), html.end(), '>'), html.end());
+    cout << html;
+}
 
-    int current_tag = -1;
-
-    do
-    {
-        current_tag = html.find(" <", current_tag + 1);
-        if (current_tag != -1)
-        {
-            start_tags.push_back(current_tag);
-        }
-    } while (current_tag != -1)
-
-    //    std::cout << html;
+void TagRemover::print(ostream &os)
+{
+    os << html;
 }
 
 int main()
 {
-
     TagRemover tr("test.html");
 }

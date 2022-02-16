@@ -3,15 +3,18 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
+using namespace std;
 
 
 class TagRemover {
 public:
 	TagRemover(std::string file);
-
+	void print(ostream& os);
     
 private:
-	std::string file;
+	string file, html;
+	//void traverseString(std::string &s, int i);
 };
 
 
