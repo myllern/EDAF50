@@ -10,7 +10,7 @@ using namespace std;
 class TagRemover {
 public:
 	TagRemover(std::string file);
-	void print(ostream& os);
+	// void print(ostream& os);
     
 private:
 	string file, html;
