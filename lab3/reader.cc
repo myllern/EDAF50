@@ -9,10 +9,9 @@ using namespace std;
 
 TagRemover::TagRemover(std::string s)
 {
-    map<string, string> noWords = {{"&lt", "<"},
-                                   {"&gt", ">"},
-                                   {"&nbsp", " "},
-                                   {"&amp", "&"}};
+    map<string, string> specialChars = {{"&lt", "<"},
+                                   {"&gnoWords
+noWords{"&amp", "&"}};
 
     ifstream file;
     file.open(s);
@@ -26,30 +25,14 @@ TagRemover::TagRemover(std::string s)
 
     html.erase(remove(html.begin(), html.end(), '<'), html.end());
     html.erase(remove(html.begin(), html.end(), '>'), html.end());
-    int b = 0;
-    for (const auto &pair : noWords)
+
+    for (auto const &w : specialChars)
     {
-        
-        int char_index = -1;
-        do
-        {
-            char_index = html.find(pair.first, char_index + 1);
-            if (char_index != -1)
-            {
-                html.replace(char_index, pair.first.size(), pair.second);
-            }
-        } while (char_index != -1);
+        std::regex rm(w.first);
+        html = regex_replace(html, rm, w.second);
+    }
 
-
-    };
     cout << html;
-
-    
-
-    // void TagRemover::print(ostream & os)
-    // {
-    //     os << html;
-    // }
 }
 
 int main()
