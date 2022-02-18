@@ -55,6 +55,24 @@ ostream &operator<<(ostream &output, const Date &D)
 	return output;
 }
 
+bool checker(int y, int m, int d)
+{
+	bool isOk = true;
+
+	if (year < 0 && year > 2022)
+	{
+		isOk = false;
+	}
+	if (month < 0 && month > 12)
+	{
+		isOk = false;
+	}
+	if (day < 0 && day > D.daysPerMonth[day])
+	{
+		isOk = false;
+	}
+}
+
 template <typename T>
 string toString(T s)
 {
@@ -78,26 +96,23 @@ std::vector<string> split_string_by_dash(string text_row)
 
 istream &operator>>(istream &input, Date &D)
 {
-	string s;
-	input >> s;
-
-	std::vector<string> v = split_string_by_dash(s);
-
-	std::cout << " " << v[1] << " ";
-
 	try
 	{
-		if (year >= 0 && year <= 2022)
+		int year, month, day;
+		string s;
+		input >> s;
+
+		std::vector<string> v = split_string_by_dash(s);
+
+		if (checker())
 		{
-			D.year = year;
+			year = stoi(v[0]);
+			month = stoi(v[1]);
+			day = stoi(v[2]);
 		}
-		if (month > 0 && month <= 12)
+		else
 		{
-			D.month = month;
-			if (day > 0 && day <= D.daysPerMonth[day])
-			{
-				D.day = day;
-			}
+			throw std::runtime_error("Error"); // implicitly cast to std::string
 		}
 	}
 	catch (const std::exception &e)
