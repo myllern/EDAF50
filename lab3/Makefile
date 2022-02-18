@@ -22,11 +22,14 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS =  reader
+PROGS =  reader prime
 
 all: $(PROGS)
 
 test: 
+
+prime: prime.o
+
 
 # Targets rely on implicit rules for compiling and linking
 
