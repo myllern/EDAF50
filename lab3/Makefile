@@ -22,17 +22,24 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS =  reader prime
+PROGS =  date reader
+
+#reader prime
 
 all: $(PROGS)
 
 test: 
 
-prime: prime.o
+#prime: prime.o
+
+#date_test: date_test.o date.o
+
+date: date.o date.h date_test.o
 
 
 # Targets rely on implicit rules for compiling and linking
 
+date: date.o
 reader: reader.o 
 # Phony targets
 .PHONY: all test clean distclean

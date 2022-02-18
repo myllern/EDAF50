@@ -1,3 +1,1 @@
-prime.o: prime.cc prime.h
-
-prime.h:
+prime.o: prime.cc

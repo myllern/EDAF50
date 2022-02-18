@@ -24,14 +24,25 @@ TagRemover::TagRemover(std::string s)
         html += row + "\n";
     }
 
-    html.erase(remove(html.begin(), html.end(), '<'), html.end());
-    html.erase(remove(html.begin(), html.end(), '>'), html.end());
+   int start_index = 0;
+    int end_index = 0;
+
+    do
+    {
+        start_index = html.find(" <", start_index);
+        end_index = html.find(">", start_index);
+        if (start_index != -1)
+        {
+            html.erase(start_index, (end_index - start_index) + 1);
+        }
+    } while (start_index != -1);
+
 
     for (auto const &w : noWords)
     {
         
         std::regex rm(w.first);
-        html = regex_replace(html, rm, "&");
+        html = regex_replace(html, rm, w.second);
 
 
 

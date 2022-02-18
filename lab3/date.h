@@ -1,5 +1,8 @@
 #ifndef DATE_H
 #define DATE_H
+#include <iostream>
+#include <ostream>
+#include <istream>
 
 class Date {
 public:
@@ -9,6 +12,10 @@ public:
 	int getMonth() const;      // get the month
 	int getDay() const;        // get the day
 	void next();               // advance to next day
+
+	friend std::ostream &operator<<(std::ostream &output, const Date &D);
+	friend std::istream &operator>>(std::istream &input, Date &D);
+
 private:
 	int year;  // the year (four digits)
 	int month; // the month (1-12)
